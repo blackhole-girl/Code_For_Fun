@@ -4,7 +4,7 @@ from bs4 import BeautifulSoup
 
 def new_arXiv_papers():
     """
-    Function to search through the arXiv website and extracts titles, and returns those that satisfy certain key words
+    Searches through the arXiv website, extracts all new submissions, and returns those that satisfy certain key words :-)
     
     Author: Houda Haidar (h.haidar2 AT newcastle.ac.uk)
     Date: 21/01/23
@@ -48,7 +48,7 @@ def new_arXiv_papers():
     #extract list of all title submissions
     #again,  class_="list-title mathjax"  is specific to arXiv
     list_titles = results.find_all("div", class_="list-title mathjax" )
-    print("Found "+str(len(list_titles))+" new submissions!! :-)") ; print("  ")
+    print("Found "+str(len(list_titles))+" new submissions!! \U0001F601") ; print("  ")
 
     #these are my keys words I am interested in, I also add variations of them bc code not too sophisticated for now
     look_for = ["AGN","AGNs","active galactic nuclei", "Active Galacti Nuclei",\
@@ -58,14 +58,18 @@ def new_arXiv_papers():
                ]
 
     #now loop over the titles & find the ones that contain the words above!
-    print("New submissions that might spike your interest...") ; print(" ")
+    print("New submissions that might BH related....") ; print(" ")
+    new_BH_papers = []
     for t in list_titles:
         title = t.text
         for key in look_for:
             if key in title:
+                new_BH_papers.append(title)
                 print(title)
                 
-                
+              
+    if len(new_BH_papers) == 0:
+        print(" Sorry! Today's not your lucky day! Try again tomorrow \U0001F601")
                 
     #to do: run everyday, set sleeper & set desktop notifications when new papers are in :-).
                 
