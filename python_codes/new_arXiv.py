@@ -72,6 +72,7 @@ def new_arXiv_papers():
         print(" Sorry! Today's not your lucky day! Try again tomorrow \U0001F601")
                 
     #to do: run everyday, set sleeper & set desktop notifications when new papers are in :-).
+    #Houda: need to add links to papers too!
                 
                 
     return
