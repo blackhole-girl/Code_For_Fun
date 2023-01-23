@@ -1,11 +1,24 @@
 import requests
 from bs4 import BeautifulSoup 
 
-
-def new_arXiv_papers():
+#these are my keys words I am interested in, I also add variations of them bc code not too sophisticated for now
+look_for = ["AGN","AGNs","active galactic nuclei", "Active Galacti Nuclei",\
+             "BH","BHs","black hole","black holes",\
+             "SMBH","SMBHs", "supermassive black hole","supermassive black holes",\
+              "JWST", "James Webb Space Telescope", "james webb space telescope",\
+            ]
+    
+def new_arXiv_papers(look_for):
     """
     Searches through the arXiv website, extracts all new submissions, and returns those that satisfy certain key words :-)
     
+    input
+        look_for: key words to look for
+        
+    return
+        titles of topics of your interest (according to the key words in look_for)
+        
+        
     Author: Houda Haidar (h.haidar2 AT newcastle.ac.uk)
     Date: 21/01/23
     
@@ -50,12 +63,6 @@ def new_arXiv_papers():
     list_titles = results.find_all("div", class_="list-title mathjax" )
     print("Found "+str(len(list_titles))+" new submissions!! \U0001F601") ; print("  ")
 
-    #these are my keys words I am interested in, I also add variations of them bc code not too sophisticated for now
-    look_for = ["AGN","AGNs","active galactic nuclei", "Active Galacti Nuclei",\
-                "BH","BHs","black hole","black holes",\
-                "SMBH","SMBHs", "supermassive black hole","supermassive black holes",\
-                "JWST", "James Webb Space Telescope", "james webb space telescope",\
-               ]
 
     #now loop over the titles & find the ones that contain the words above!
     print("New submissions that might BH related....") ; print(" ")
@@ -78,4 +85,4 @@ def new_arXiv_papers():
     return
     
 
-new_arXiv_papers()
+new_arXiv_papers(look_for)
