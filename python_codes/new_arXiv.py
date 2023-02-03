@@ -6,6 +6,7 @@ look_for = ["AGN","AGNs","active galactic nuclei", "Active Galacti Nuclei",\
              "BH","BHs","black hole","black holes",\
              "SMBH","SMBHs", "supermassive black hole","supermassive black holes",\
               "JWST", "James Webb Space Telescope", "james webb space telescope",\
+              "quasars", "Quasars",\
             ]
     
 def new_arXiv_papers(look_for):
@@ -65,7 +66,7 @@ def new_arXiv_papers(look_for):
 
 
     #now loop over the titles & find the ones that contain the words above!
-    print("New submissions that might BH related....") ; print(" ")
+    print("New submissions that might be BH related....") ; print(" ")
     new_BH_papers = []
     for t in list_titles:
         title = t.text
